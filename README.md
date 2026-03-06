@@ -12,7 +12,15 @@ Theme principal del sitio WordPress Campus4All.
 
 1. **Cambios en GitHub**: Se hacen vía Claude o manualmente en este repo
 2. **Pull local**: `git pull origin main` desde `~/github-repos/campus4allorg`
-3. **Deploy a producción**: FTP manual al servidor de producción
+3. **Verificar local**: Probar en http://campus4allorg.local
+4. **Deploy a producción**: Subir archivos modificados por FTP al servidor de producción
+
+### Deploy por FTP
+
+- Conectar al servidor FTP de producción
+- Subir **solo los archivos modificados** del theme
+- Verificar que los cambios se vean correctamente en el sitio en vivo
+- Si hay cambios en `package.json`, correr `npm install` localmente y subir archivos compilados
 
 ## Scripts disponibles
 
