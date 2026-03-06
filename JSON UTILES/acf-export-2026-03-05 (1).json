@@ -1,0 +1,713 @@
+
+[
+    {
+        "key": "group_69a9b56905052",
+        "title": "Global Modules (copy)",
+        "fields": [
+            {
+                "key": "field_69a9b569059b7",
+                "label": "Global Modules",
+                "name": "global_modules",
+                "aria-label": "",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "show-thumbs auto-collapsible",
+                    "id": ""
+                },
+                "layouts": {
+                    "layout_69a9a43ac82f5": {
+                        "key": "layout_69a9a43ac82f5",
+                        "name": "youtube_embeds",
+                        "label": "Youtube Embeds",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_69a9b56906488",
+                                "label": "Items",
+                                "name": "items",
+                                "aria-label": "",
+                                "type": "flexible_content",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "acf-flex-content-single",
+                                    "id": ""
+                                },
+                                "layouts": {
+                                    "layout_66da235ef354e": {
+                                        "key": "layout_66da235ef354e",
+                                        "name": "items",
+                                        "label": "Video",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_69a9b56906c2a",
+                                                "label": "Mode",
+                                                "name": "mode",
+                                                "aria-label": "",
+                                                "type": "radio",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "url": "URL",
+                                                    "file": "File"
+                                                },
+                                                "default_value": "url",
+                                                "return_format": "value",
+                                                "allow_null": 0,
+                                                "other_choice": 0,
+                                                "allow_in_bindings": 0,
+                                                "layout": "horizontal",
+                                                "save_other_choice": 0
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c2d",
+                                                "label": "Video URL",
+                                                "name": "video_url",
+                                                "aria-label": "",
+                                                "type": "url",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_69a9b56906c2a",
+                                                            "operator": "==",
+                                                            "value": "url"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c2f",
+                                                "label": "Video File",
+                                                "name": "video_file",
+                                                "aria-label": "",
+                                                "type": "file",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_69a9b56906c2a",
+                                                            "operator": "==",
+                                                            "value": "file"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all",
+                                                "min_size": "",
+                                                "max_size": 50,
+                                                "mime_types": "mp4, ogv, webm",
+                                                "allow_in_bindings": 0
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c32",
+                                                "label": "Adds",
+                                                "name": "adds",
+                                                "aria-label": "",
+                                                "type": "checkbox",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "poster": "Custom Poster Image",
+                                                    "subs": "Closed Captions",
+                                                    "video_thumb": "Video Thumb"
+                                                },
+                                                "default_value": [],
+                                                "return_format": "value",
+                                                "allow_custom": 0,
+                                                "allow_in_bindings": 0,
+                                                "layout": "horizontal",
+                                                "toggle": 0,
+                                                "save_custom": 0,
+                                                "custom_choice_button_text": "Add new choice"
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c35",
+                                                "label": "Poster Image",
+                                                "name": "image",
+                                                "aria-label": "",
+                                                "type": "image",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_69a9b56906c32",
+                                                            "operator": "==",
+                                                            "value": "poster"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": "",
+                                                "allow_in_bindings": 0,
+                                                "preview_size": "medium"
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c3c",
+                                                "label": "Video Thumb",
+                                                "name": "video_thumb",
+                                                "aria-label": "",
+                                                "type": "file",
+                                                "instructions": "Only shown on the listing page",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_69a9b56906c32",
+                                                            "operator": "==",
+                                                            "value": "video_thumb"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all",
+                                                "min_size": "",
+                                                "max_size": 50,
+                                                "mime_types": "mp4, m4a, ogv, webm",
+                                                "allow_in_bindings": 0
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c3e",
+                                                "label": "Closed Captions",
+                                                "name": "subs",
+                                                "aria-label": "",
+                                                "type": "textarea",
+                                                "instructions": "Supports SBV (YouTube) and SRT formats. Paste directly from a .sbv or .srt file. Avoid editing manually to prevent formatting issues.",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_69a9b56906c32",
+                                                            "operator": "==",
+                                                            "value": "subs"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "no-resize closed-captions",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "rows": "",
+                                                "placeholder": "",
+                                                "new_lines": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c41",
+                                                "label": "User",
+                                                "name": "user",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "40",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c43",
+                                                "label": "Text",
+                                                "name": "text",
+                                                "aria-label": "",
+                                                "type": "textarea",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "no-resize ",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "rows": -1,
+                                                "placeholder": "",
+                                                "new_lines": "br"
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c46",
+                                                "label": "Image",
+                                                "name": "profile_image",
+                                                "aria-label": "",
+                                                "type": "image",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": "",
+                                                "allow_in_bindings": 0,
+                                                "preview_size": "thumbnail"
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c4a",
+                                                "label": "plattform",
+                                                "name": "plattform",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c4d",
+                                                "label": "aspect_ratio",
+                                                "name": "aspect_ratio",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c4f",
+                                                "label": "poster_default",
+                                                "name": "poster_default",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c52",
+                                                "label": "Name",
+                                                "name": "name",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "40",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56906c54",
+                                                "label": "Heading Tag",
+                                                "name": "heading_tag",
+                                                "aria-label": "",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "20",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "none": "None",
+                                                    "header-h1": "H1",
+                                                    "header-h2": "H2",
+                                                    "header-h3": "H3",
+                                                    "header-h4": "H4"
+                                                },
+                                                "default_value": false,
+                                                "return_format": "value",
+                                                "multiple": 0,
+                                                "allow_null": 0,
+                                                "allow_in_bindings": 0,
+                                                "ui": 1,
+                                                "ajax": 0,
+                                                "placeholder": "",
+                                                "create_options": 0,
+                                                "save_options": 0
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    }
+                                },
+                                "min": "",
+                                "max": "",
+                                "button_label": "Add Video"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_66da22f295a95": {
+                        "key": "layout_66da22f295a95",
+                        "name": "reels",
+                        "label": "Instagram Embeds",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_69a9b569064ed",
+                                "label": "Items",
+                                "name": "items",
+                                "aria-label": "",
+                                "type": "flexible_content",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "acf-flex-content-single",
+                                    "id": ""
+                                },
+                                "layouts": {
+                                    "layout_66da235ef354e": {
+                                        "key": "layout_66da235ef354e",
+                                        "name": "items",
+                                        "label": "Reel",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_69a9b56920266",
+                                                "label": "URL",
+                                                "name": "url",
+                                                "aria-label": "",
+                                                "type": "url",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "70",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56920269",
+                                                "label": "Type",
+                                                "name": "type",
+                                                "aria-label": "",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "30",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "video": "Video",
+                                                    "image": "Image"
+                                                },
+                                                "default_value": "video",
+                                                "return_format": "value",
+                                                "multiple": 0,
+                                                "allow_null": 0,
+                                                "allow_in_bindings": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "placeholder": "",
+                                                "create_options": 0,
+                                                "save_options": 0
+                                            },
+                                            {
+                                                "key": "field_69a9b5692026b",
+                                                "label": "Name",
+                                                "name": "name",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "40",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b5692026d",
+                                                "label": "Heading Tag",
+                                                "name": "heading_tag",
+                                                "aria-label": "",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "20",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "none": "None",
+                                                    "header-h1": "H1",
+                                                    "header-h2": "H2",
+                                                    "header-h3": "H3",
+                                                    "header-h4": "H4"
+                                                },
+                                                "default_value": false,
+                                                "return_format": "value",
+                                                "multiple": 0,
+                                                "allow_null": 0,
+                                                "allow_in_bindings": 0,
+                                                "ui": 1,
+                                                "ajax": 0,
+                                                "placeholder": "",
+                                                "create_options": 0,
+                                                "save_options": 0
+                                            },
+                                            {
+                                                "key": "field_69a9b56920270",
+                                                "label": "User",
+                                                "name": "user",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "40",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": ""
+                                            },
+                                            {
+                                                "key": "field_69a9b56920272",
+                                                "label": "Text",
+                                                "name": "text",
+                                                "aria-label": "",
+                                                "type": "textarea",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "no-resize",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "allow_in_bindings": 0,
+                                                "rows": 3,
+                                                "placeholder": "",
+                                                "new_lines": "br"
+                                            },
+                                            {
+                                                "key": "field_69a9b56920274",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "aria-label": "",
+                                                "type": "image",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": "",
+                                                "allow_in_bindings": 0,
+                                                "preview_size": "thumbnail"
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    }
+                                },
+                                "min": "",
+                                "max": "",
+                                "button_label": "Add Reel"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                },
+                "min": "",
+                "max": "",
+                "button_label": "Add Module"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page",
+                    "operator": "!=",
+                    "value": "552"
+                }
+            ],
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "sources"
+                }
+            ]
+        ],
+        "menu_order": 10,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "excerpt",
+            "discussion",
+            "comments",
+            "revisions",
+            "slug",
+            "author",
+            "format",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

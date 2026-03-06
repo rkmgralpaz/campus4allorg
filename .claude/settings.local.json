@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(/tmp/figma_query.sh '{\"\"jsonrpc\"\":\"\"2.0\"\",\"\"id\"\":3,\"\"method\"\":\"\"tools/call\"\",\"\"params\"\":{\"\"name\"\":\"\"get_screenshot\"\",\"\"arguments\"\":{\"\"nodeId\"\":\"\"2391:917\"\",\"\"clientLanguages\"\":\"\"scss,html,php\"\",\"\"clientFrameworks\"\":\"\"wordpress\"\"}}}')",
+      "Bash(npx sass:*)"
+    ]
+  }
+}
