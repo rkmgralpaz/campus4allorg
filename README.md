@@ -42,3 +42,17 @@ Este theme usa:
 
 - `node_modules/` está excluido del repo (ver `.gitignore`)
 - Después de hacer `git pull`, si hay cambios en `package.json`, correr `npm install`
+
+## ⚡ Sincronización rápida
+
+Para sincronizar cambios desde GitHub y compilar automáticamente:
+
+```bash
+sync campus4allorg
+```
+
+Este comando hace:
+1. Pull de los últimos cambios
+2. Instala dependencias si es necesario
+3. Compila assets con Gulp
+4. Te avisa dónde ver los cambios
