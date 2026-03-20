@@ -4,7 +4,7 @@ $GLOBALS['wp_post_id'] = get_the_ID();
 
 function num_version()
 {
-    return '1.0.387';
+    return '1.0.388';
 }
 
 //---------------------------------//
@@ -61,7 +61,8 @@ function bs_login_logo_url($url)
 //--- MENUS ---//
 function custom_menu_order($menu_ord)
 {
-    if (!$menu_ord) return true;
+    if (!$menu_ord)
+        return true;
 
     return array(
         'index.php', // Dashboard
@@ -256,8 +257,8 @@ add_filter('mce_external_plugins', 'plugin_register_plugin');
 
 
 /*
-* Callback function to filter the MCE settings
-*/
+ * Callback function to filter the MCE settings
+ */
 function my_mce_before_init_insert_formats($init_array)
 {
 
@@ -351,11 +352,11 @@ function general_acf_flex_content_title($title, $field, $layout, $i)
     // note you may need to add extra CSS to the page t style these elements
 
     /*
-	if( $image = get_sub_field('image') ) {
+    if( $image = get_sub_field('image') ) {
         $title .= '<div class="thumbnail">';
-		$title .= '<img src="' . $image['sizes']['thumbnail'] . '" height="36px" />';
+        $title .= '<img src="' . $image['sizes']['thumbnail'] . '" height="36px" />';
         $title .= '</div>';
-	}
+    }
     */
     //print_r(get_sub_field('rows_accordion')[0]['title']);
     $hide_original_title = $tmp_title == 'Program';
@@ -626,6 +627,7 @@ add_filter('acf/fields/flexible_content/layout_title/name=card_groups', 'cards_a
 function my_admin_enqueue_scripts()
 {
     wp_enqueue_script('my-admin-js', get_template_directory_uri() . '/js/acf-custom-events.js', array(), num_version(), true);
+    wp_enqueue_script('acf-video-poster', get_template_directory_uri() . '/js/acf-video-poster.js', array('jquery'), num_version(), true);
 }
 add_action('acf/input/admin_enqueue_scripts', 'my_admin_enqueue_scripts');
 
@@ -684,11 +686,11 @@ function events_default_view_posts_filter($query)
 
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
-        'page_title'     => 'Website Options',
-        'menu_title'    => 'Website Options',
-        'menu_slug'     => 'theme-options',
-        'capability'    => 'edit_posts',
-        'redirect'        => true,
+        'page_title' => 'Website Options',
+        'menu_title' => 'Website Options',
+        'menu_slug' => 'theme-options',
+        'capability' => 'edit_posts',
+        'redirect' => true,
         'position' => '63.3'
     ));
     /*
@@ -696,7 +698,7 @@ if (function_exists('acf_add_options_page')) {
     'page_title' => 'Footer',
     'menu_title' => 'Footer',
     'parent_slug'	=> 'theme-options',
-	));
+    ));
     */
 }
 
@@ -867,7 +869,8 @@ function get_next_prev_post($type, $cat, $ID)
     $n = -1;
     $i = 0;
     if ($list->have_posts()) {
-        while ($list->have_posts()) : $list->the_post();
+        while ($list->have_posts()):
+            $list->the_post();
             $post_ID = get_the_ID();
             $list_ID[] += $post_ID;
             if ($post_ID == $ID) {
@@ -1015,12 +1018,12 @@ function my_scripts()
 {
 
     /*
-	if (!is_admin()) {
-		
+    if (!is_admin()) {
+
         wp_deregister_script('jquery');
-		wp_register_script('jquery', get_template_directory_uri().'/js/jquery-3.6.0.min.js', false, false, false);
- 		wp_enqueue_script('jquery');
-	}
+        wp_register_script('jquery', get_template_directory_uri().'/js/jquery-3.6.0.min.js', false, false, false);
+         wp_enqueue_script('jquery');
+    }
     */
     wp_register_script('main-script', get_template_directory_uri() . '/js/main.js', false, num_version(), false);
     wp_enqueue_script('main-script');
@@ -1175,7 +1178,7 @@ function my_acf_fields_post_object_on_demand_class($args, $field, $post_id)
     //$the_search = $args['s'];
     //unset($args['s']);
     $args['meta_query'] = array(
-        'relation'        => 'AND',
+        'relation' => 'AND',
         /* array(
             'key' => 'default_template',
             //'value' => 'Class',
@@ -1183,14 +1186,14 @@ function my_acf_fields_post_object_on_demand_class($args, $field, $post_id)
             'compare' => 'LIKE',
         ), */
         array(
-            'key'          => 'on_demand',
-            'value'          => '1',
-            'compare'     => 'LIKE',
+            'key' => 'on_demand',
+            'value' => '1',
+            'compare' => 'LIKE',
         ),
         array(
-            'key'          => 'date_hour_date',
-            'value'          => get_current_date('ymd'),
-            'compare'     => '<',
+            'key' => 'date_hour_date',
+            'value' => get_current_date('ymd'),
+            'compare' => '<',
         )
     );
     $args['post__not_in'] = array($post_id);
@@ -1232,7 +1235,7 @@ function relationship_options_filter($options, $field, $post)
 
 function my_acf_admin_head()
 {
-?>
+    ?>
     <style type="text/css">
         .acf-postbox.seamless>.acf-fields>.acf-tab-wrap {
             height: 46px !important;
@@ -1334,7 +1337,7 @@ function my_acf_admin_head()
             color: white;
         }
 
-                .acf-field.closed-captions textarea{
+        .acf-field.closed-captions textarea {
             background-color: #f1f1f1;
             color: #2c3338;
             font-family: monospace;
@@ -1429,8 +1432,8 @@ function my_acf_admin_head()
         }
 
         /* .acf-relationship .selection .values .post-type-custom-label:before{
-            content: url('https://api.iconify.design/dashicons/format-gallery.svg');
-        } */
+                content: url('https://api.iconify.design/dashicons/format-gallery.svg');
+            } */
         .acf-tab-wrap.-left .acf-tab-group li:first-child {
             border-top: solid 1px #cccccc;
         }
@@ -1479,10 +1482,11 @@ function my_acf_admin_head()
             border-radius: 2px;
         }
 
-        .acf-field.acf-break-line{
+        .acf-field.acf-break-line {
             clear: inline-start !important;
         }
-        .acf-field.acf-clear-both{
+
+        .acf-field.acf-clear-both {
             clear: both !important;
         }
 
@@ -2047,14 +2051,14 @@ function my_acf_admin_head()
     </style>
 
     <script type="text/javascript">
-        /* 
+        /*
 
     (function($){
  
         //
  
     })(jQuery); 
-    
+ 
     */
     </script>
 
@@ -2122,7 +2126,7 @@ function disable_default_endpoints($endpoints)
         '/wp/v2/categories'
     );
 
-    if (! is_user_logged_in()) {
+    if (!is_user_logged_in()) {
         foreach ($endpoints_to_remove as $rem_endpoint) {
             // $base_endpoint = "/wp/v2/{$rem_endpoint}";
             foreach ($endpoints as $maybe_endpoint => $object) {
@@ -2322,14 +2326,14 @@ function add_meta_field_when_save($post_id = 0)
 {
 
     /* if ( get_post_type($post_id) == 'cpt_name_here' ) {
- 
+
          // If this is just a revision, don't send the email.
          if ( wp_is_post_revision( $post_id ) )
          return;
- 
+
          $value = 'something'; // The value depends in fact on the value of another field
          update_post_meta($post_id, 'some_custom_field', $value);
- 
+
      } */
     update_post_meta($post_id, 'default_title', get_the_title($post_id));
     if ($post_id && get_post_type($post_id) == 'events'): //restrict post_type to events
@@ -2385,8 +2389,8 @@ function set_date_event_when_save($post_id = 0)
                 update_post_meta($post_id, 'date_hour_date', get_the_date('Ymd'));
             }
         }/* elseif($template == 'template-events-class.php' && $on_demand && !get_field('date_hour_date',$post_id)){
-            update_post_meta($post_id, 'date_hour_date', get_the_date('Ymd'));
-        } */
+           update_post_meta($post_id, 'date_hour_date', get_the_date('Ymd'));
+       } */
         if ($template == 'template-events-default-event.php' && get_field('date_hour_recurring_event') && get_field('date_hour_date') == '') {
             update_post_meta($post_id, 'date_hour_date', get_the_date('Ymd'));
         }
@@ -2432,7 +2436,7 @@ function get_current_date($format = 'Ymd')
 //--- ON LOGIN ---//
 
 /* function when_any_user_login( $user_login, $user ) {
-    
+
 }
 add_action('wp_login', 'when_any_user_login', 10, 2); */
 
@@ -2754,7 +2758,7 @@ function hide_posts_pages()
     global $current_user;
     get_currentuserinfo();
     if ($current_user->user_login != 'admin') {
-    ?>
+        ?>
         <script>
             document.addEventListener('DOMContentLoaded', e => {
                 document.querySelectorAll('.row-title').forEach(el => {
@@ -2764,7 +2768,7 @@ function hide_posts_pages()
                 });
             });
         </script>
-    <?php
+        <?php
     }
 }
 
@@ -2784,12 +2788,13 @@ function linkify($value, $protocols = array('http', 'mail'), array $attributes =
     }, $value);
 
     // Extract text links for each protocol
-    foreach ((array)$protocols as $protocol) {
+    foreach ((array) $protocols as $protocol) {
         switch ($protocol) {
             case 'http':
             case 'https':
                 $value = preg_replace_callback('~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i', function ($match) use ($protocol, &$links, $attr) {
-                    if ($match[1]) $protocol = $match[1];
+                    if ($match[1])
+                        $protocol = $match[1];
                     $link = $match[2] ?: $match[3];
                     return '<' . array_push($links, "<a $attr href=\"$protocol://$link\">$link</a>") . '>';
                 }, $value);
@@ -2801,7 +2806,7 @@ function linkify($value, $protocols = array('http', 'mail'), array $attributes =
                 break;
             case 'twitter':
                 $value = preg_replace_callback('~(?<!\w)[@#](\w++)~', function ($match) use (&$links, $attr) {
-                    return '<' . array_push($links, "<a $attr href=\"https://twitter.com/" . ($match[0][0] == '@' ? '' : 'search/%23') . $match[1]  . "\">{$match[0]}</a>") . '>';
+                    return '<' . array_push($links, "<a $attr href=\"https://twitter.com/" . ($match[0][0] == '@' ? '' : 'search/%23') . $match[1] . "\">{$match[0]}</a>") . '>';
                 }, $value);
                 break;
             default:
@@ -2878,7 +2883,7 @@ function get_dynamic_heading($title, $heading_tag, $classes = '', $attributes = 
             <?php echo esc_html($title); ?>
         </div>
     <?php endif; ?>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -2908,17 +2913,18 @@ function get_all_page_ids_except($exclude_id) {
     ]);
     return wp_list_pluck($pages, 'ID');
 } */
-add_action('pre_get_posts', function($query) {
-    if (!is_admin() || !$query->is_main_query()) return;
+add_action('pre_get_posts', function ($query) {
+    if (!is_admin() || !$query->is_main_query())
+        return;
 
     if ($query->get('post_type') === 'page') {
         $front_page_id = get_option('page_on_front');
 
         // Traemos todas las páginas respetando menu_order
         $pages = get_pages([
-            'exclude'     => $front_page_id,
+            'exclude' => $front_page_id,
             'sort_column' => 'menu_order, post_title',
-            'post_status' => ['publish','draft','pending','private']
+            'post_status' => ['publish', 'draft', 'pending', 'private']
         ]);
 
         // Creamos el array de IDs: front-page primero, luego todas las demás
@@ -2988,10 +2994,10 @@ add_action('pre_get_posts', function ($query) {
 
         // Buscar IDs
         $hide_ids = get_posts([
-            'post_type'      => 'data_interactive',
-            'post_name__in'  => $hide_slugs,
-            'fields'         => 'ids',
-            'post_status'    => 'any',
+            'post_type' => 'data_interactive',
+            'post_name__in' => $hide_slugs,
+            'fields' => 'ids',
+            'post_status' => 'any',
             'posts_per_page' => -1
         ]);
 
@@ -3009,7 +3015,7 @@ add_action('pre_get_posts', function ($query) {
 add_filter('acf/fields/relationship/query/name=featured_news_archive', function ($args, $field, $post_id) {
     // ACF Relationship Query Modification
     $args['orderby'] = 'date';
-    $args['order']   = 'DESC';
+    $args['order'] = 'DESC';
     return $args;
 }, 10, 3);
 //--- News order by date (DESC) ---//
@@ -3062,22 +3068,27 @@ add_action('init', function () {
 add_action('init', function () {
     // Register post meta (hidden from editor UI; not using ACF)
     register_post_meta('resources', 'search_title', [
-        'type'              => 'string',
-        'single'            => true,
-        'show_in_rest'      => false, // keep it internal
+        'type' => 'string',
+        'single' => true,
+        'show_in_rest' => false, // keep it internal
         'sanitize_callback' => 'sanitize_text_field',
-        'auth_callback'     => function () { return current_user_can('read'); },
+        'auth_callback' => function () {
+            return current_user_can('read'); },
     ]);
 });
 
 // Keep `search_title` synchronized with the post title whenever a resource is saved
 add_action('save_post_resources', function ($post_id, $post, $update) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if (wp_is_post_revision($post_id)) return;
-    if ($post->post_type !== 'resources') return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return;
+    if (wp_is_post_revision($post_id))
+        return;
+    if ($post->post_type !== 'resources')
+        return;
 
     $title = get_the_title($post_id);
-    if ($title === '') $title = '';
+    if ($title === '')
+        $title = '';
 
     $current = get_post_meta($post_id, 'search_title', true);
     if ($current !== $title) {
@@ -3087,16 +3098,17 @@ add_action('save_post_resources', function ($post_id, $post, $update) {
 
 
 if (!function_exists('hillel_get_subtype_list')) {
-    function hillel_get_subtype_list() {
+    function hillel_get_subtype_list()
+    {
         return [
-            ['name' => 'all',                 'title' => 'All'],
-            ['name' => 'social_media_email',  'title' => 'Social Media/Email'],
+            ['name' => 'all', 'title' => 'All'],
+            ['name' => 'social_media_email', 'title' => 'Social Media/Email'],
             ['name' => 'article_publication', 'title' => 'Article/Publication'],
-            ['name' => 'hate_speech',         'title' => 'Hate Speech'],
-            ['name' => 'vandalism_graffiti',  'title' => 'Vandalism/Graffiti'],
+            ['name' => 'hate_speech', 'title' => 'Hate Speech'],
+            ['name' => 'vandalism_graffiti', 'title' => 'Vandalism/Graffiti'],
             ['name' => 'physical_harassment', 'title' => 'Harassment'],
-            ['name' => 'assault',             'title' => 'Assault'],
-            ['name' => 'others',              'title' => 'Other'],
+            ['name' => 'assault', 'title' => 'Assault'],
+            ['name' => 'others', 'title' => 'Other'],
         ];
     }
 }
@@ -3120,7 +3132,7 @@ if (!function_exists('get_subtype_title')) {
     }
     return $og_title;
 }); */
-add_filter('wpseo_opengraph_title', function($title) {
+add_filter('wpseo_opengraph_title', function ($title) {
     if (is_singular('data_interactive')) {
         $slug = get_post_field('post_name', get_queried_object_id());
 
@@ -3141,7 +3153,8 @@ add_filter('wpseo_opengraph_title', function($title) {
 }, 99); // prioridad alta para pisar Yoast
 
 
-function prevent_orphans($text, $allow_long_word = false, $long_word_min_length = 12) {
+function prevent_orphans($text, $allow_long_word = false, $long_word_min_length = 12)
+{
     // Extraer solo el texto plano (sin etiquetas) para análisis
     $plain_text = trim(preg_replace('/\s+/', ' ', strip_tags($text)));
     $words = explode(' ', $plain_text);
@@ -3173,3 +3186,147 @@ require 'partials/news/functions_news.php';
 //
 //--- NEWS FEATURED (ARCHIVE) ---//
 //-------------------------------//
+
+
+//-----------------------------------------//
+//--- SUBTITLE PARSERS (SRT / SBV)       ---//
+//-----------------------------------------//
+
+function subs_to_json($subsString, $format = 'auto')
+{
+    if ($format === 'auto') {
+        if (preg_match('/\d+:\d{2}:\d{2}\.\d{3},\d+:\d{2}:\d{2}\.\d{3}/', $subsString)) {
+            $format = 'sbv';
+        } else {
+            $format = 'srt';
+        }
+    }
+
+    $subtitles = [];
+
+    if ($format === 'sbv') {
+        $subtitles = parse_sbv($subsString);
+    } else {
+        $subtitles = parse_srt($subsString);
+    }
+
+    return json_encode($subtitles, JSON_UNESCAPED_UNICODE);
+}
+
+function parse_srt($srtString)
+{
+    $blocks = preg_split('/\n\s*\n/', trim($srtString));
+    $subtitles = [];
+
+    foreach ($blocks as $block) {
+        $lines = explode("\n", trim($block));
+
+        if (count($lines) < 3)
+            continue;
+
+        if (preg_match('/(\d{2}):(\d{2}):(\d{2}),(\d{3})\s*-->\s*(\d{2}):(\d{2}):(\d{2}),(\d{3})/', $lines[1], $matches)) {
+            $start = (
+                intval($matches[1]) * 3600000 +
+                intval($matches[2]) * 60000 +
+                intval($matches[3]) * 1000 +
+                intval($matches[4])
+            );
+
+            $end = (
+                intval($matches[5]) * 3600000 +
+                intval($matches[6]) * 60000 +
+                intval($matches[7]) * 1000 +
+                intval($matches[8])
+            );
+
+            $text = implode(' ', array_slice($lines, 2));
+
+            $subtitles[] = [
+                'start' => $start,
+                'end' => $end,
+                'text' => $text
+            ];
+        }
+    }
+
+    return $subtitles;
+}
+
+function parse_sbv($sbvString)
+{
+    $blocks = preg_split('/\n\s*\n/', trim($sbvString));
+    $subtitles = [];
+
+    foreach ($blocks as $block) {
+        $lines = explode("\n", trim($block));
+
+        if (count($lines) < 2)
+            continue;
+
+        if (preg_match('/(\d+):(\d{2}):(\d{2})\.(\d{3}),(\d+):(\d{2}):(\d{2})\.(\d{3})/', $lines[0], $matches)) {
+            $start = (
+                intval($matches[1]) * 3600000 +
+                intval($matches[2]) * 60000 +
+                intval($matches[3]) * 1000 +
+                intval($matches[4])
+            );
+
+            $end = (
+                intval($matches[5]) * 3600000 +
+                intval($matches[6]) * 60000 +
+                intval($matches[7]) * 1000 +
+                intval($matches[8])
+            );
+
+            $text = implode(' ', array_slice($lines, 1));
+
+            $subtitles[] = [
+                'start' => $start,
+                'end' => $end,
+                'text' => $text
+            ];
+        }
+    }
+
+    return $subtitles;
+}
+
+// ============================================
+// AUTO-POSTER: YouTube Embeds
+// When editor pastes a YouTube URL, auto-generates poster thumbnail
+// and detects platform + aspect ratio
+// ============================================
+add_action('acf/input/admin_footer', function () {
+    wp_enqueue_script(
+        'acf-video-poster',
+        get_template_directory_uri() . '/js/acf-video-poster.js',
+        ['jquery', 'acf-input'],
+        filemtime(get_template_directory() . '/js/acf-video-poster.js'),
+        true
+    );
+});
+
+
+//-----------------------------------//
+//--- PREVENT ORPHANS (word widow) ---//
+//-----------------------------------//
+// Reemplaza el último espacio antes de la última palabra por un
+// non-breaking space UTF-8 (\u00A0) — compatible con esc_html().
+if ( ! function_exists( 'prevent_orphans' ) ) {
+    function prevent_orphans( $text ) {
+        if ( ! $text ) return $text;
+        // Opera sobre el texto plano para contar palabras
+        $plain = trim( preg_replace( '/\s+/', ' ', strip_tags( $text ) ) );
+        if ( str_word_count( $plain ) <= 2 ) return $text;
+        // Reemplaza el último espacio (antes de la última palabra / tags de cierre)
+        // por el carácter UTF-8 NBSP — esc_html() no lo toca
+        return preg_replace(
+            '/\s+([^\s<>]+)(\s*<\/[^>]+>\s*)*$/u',
+            "\u{00A0}$1$2",
+            $text,
+            1
+        );
+    }
+}
+//--- PREVENT ORPHANS ---//
+//------------------------//

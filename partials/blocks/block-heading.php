@@ -41,6 +41,10 @@ $title_tag = (!empty($block['heading_tag']) && $block['heading_tag'] !== 'none')
 $title_tag_close = "</{$title_tag}>";
 $data_animate = isset($block_remove_transitions) && $block_remove_transitions ? '' : 'fade-in-up';
 
+// Prevent orphans en el título
+$title_display = function_exists('prevent_orphans') ? prevent_orphans($block['title']) : $block['title'];
+
+
 ?>
 
 <div id="block-<?php echo $block_index; ?>" class="theme 
@@ -99,7 +103,7 @@ $data_animate = isset($block_remove_transitions) && $block_remove_transitions ? 
 					<?php if ($block['title'] && isset($link_to_ancestor)) { ?>
 						<a class="block-heading__title-link" href="<?php echo $link_to_ancestor; ?>">
 							<<?php echo $title_tag; ?> class="block-heading__title theme__text--primary <?php echo $block['module_color_settings']['title']; ?>" data-animate="<?php echo $data_animate; ?>">
-								<?php echo $block['title']; ?>
+								<?php echo $title_display; ?>
 								<?php echo $title_tag_close; ?>
 						</a>
 					<?php } else if ($block['title']) { ?>
@@ -107,7 +111,8 @@ $data_animate = isset($block_remove_transitions) && $block_remove_transitions ? 
 						<?php if (!empty($block['heading_tag']) && $block['heading_tag'] !== 'none') { ?>
 							<?php
 							echo get_dynamic_heading(
-								$block['title'],
+								$title_display,
+
 								$block['heading_tag'],
 								'block-heading__title theme__text--primary ' . $block['module_color_settings']['title'],
 								['data-animate' => $data_animate,]
@@ -117,7 +122,8 @@ $data_animate = isset($block_remove_transitions) && $block_remove_transitions ? 
 						<?php  } else { ?>
 
 							<<?php echo $title_tag; ?> class="block-heading__title theme__text--primary <?php echo $block['module_color_settings']['title']; ?>" data-animate="<?php echo $data_animate; ?>">
-								<?php echo $block['title']; ?>
+								<?php echo $title_display; ?>
+
 								<?php echo $title_tag_close; ?>
 
 

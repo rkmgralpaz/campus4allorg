@@ -96,6 +96,7 @@ doc.addEventListener('DOMContentLoaded', () => {//espera a que se cargue el DOM
                 { selector: '.block-cta-misinformation-cards', src: './js-modules/blocks/block-cta-misinformation-cards.js?ver' + siteVersion },
                 { selector: '.block-home-animation', src: './js-modules/blocks/block-home-animation.js?ver=' + siteVersion },
                 { selector: '.block-reels', src: './js-modules/blocks/block-reels.js?ver' + siteVersion },
+                { selector: '.block-youtube-embeds', src: './js-modules/blocks/block-youtube-embeds.js?ver=' + siteVersion },
                 { selector: '.block-bannerv', src: './js-modules/blocks/block-cta-banner-v.js?ver' + siteVersion },
                 { selector: '.block-related-media-horizontal', src: './js-modules/blocks/block-related-media-horizontal.js?ver=' + siteVersion },
                 { selector: '.block-context', src: './js-modules/blocks/block-context.js?ver=' + siteVersion },
